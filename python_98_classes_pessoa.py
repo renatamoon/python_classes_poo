@@ -1,5 +1,9 @@
+from datetime import datetime
+
 class Pessoa: #quando uma funcao esta dentro de uma classe
     #ela é um metodo
+    ano_atual = int(datetime.strftime(datetime.now(), '%Y')) #var da classe
+    #todos os objetos terão essa variavel
     def __init__(self, nome, idade, comendo=False, falando=False):
         self.nome = nome #mesmo que o valor da self seja igual ao
         #parametro da funcao, eles nao sao iguais, pois um recebe o valor do outro
@@ -15,6 +19,7 @@ class Pessoa: #quando uma funcao esta dentro de uma classe
         if self.comendo:
             print(f'{self.nome} nao pode falar comendo')
             return
+
         if self.falando:
             print(f'{self.nome} ja esta falando')
             return
@@ -47,13 +52,30 @@ class Pessoa: #quando uma funcao esta dentro de uma classe
             print(f'{self.nome} nao está comendo ...')
             return
 
-        if self.falando:
-            print(f'{self.nome} nao pode comer falando')
-            return
-
         print(f'{self.nome} parou de comer.')
         self.comendo = False
 
     def get_ano_nascimento(self):
-        return ano_atual = self.idade
-        pass
+        return self.ano_atual - self.idade #para usar a variavel ano_atual que está
+    #fora da classe, tem que usar o self pra chamar como usamos acima
+
+# ---------------- não precisa estar em files diferentes
+
+p1 = Pessoa('Luiz', 29) #usando o modulo para criar uma pessoa
+#p2 = Pessoa('Joao', 32) #usando o modulo para criar outra pessoa
+#todas as instancias devem ter esses parametros padrao
+p2 = Pessoa('Joao', 32)
+
+# print(p1.ano_atual)
+# print(p2.ano_atual)
+
+#print(Pessoa.ano_atual) #usando a classe em si, usando a var da classe
+
+print(p1.get_ano_nascimento()) #usando o valor da idade de p1 e pegando o ano de nascimento
+print(p2.get_ano_nascimento())
+
+p1.comer('maça')
+p1.comer('maça')
+p1.falar('assunto')
+p1.parar_falar()
+p1.comer('massa')
