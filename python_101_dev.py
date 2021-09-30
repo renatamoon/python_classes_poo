@@ -8,11 +8,24 @@ class Computador:
         self.marca = marca
         self.memoria_ram = memoria_ram
         self.placa_de_video = placa_de_video
-    pass
+
+
+    def Ligar(self):
+        print('Estou ligando')
+
+    def Desligar(self):
+        print('estou desligando')
+
+    def ExibirInformacoesDesteComputador(self):
+        print(self.marca, self.memoria_ram, self.placa_de_video)
+
 #instanciar ela
 computador1 = Computador('HP', '10gb', 'Nvidia')
-computador3 = Computador('Lenovo', '12gb', 'Nvidia')
-computador4 = Computador('Apple', '8gb', 'Raizen')
+computador1.Ligar()
+computador1.Desligar()
+computador1.ExibirInformacoesDesteComputador()
+# computador3 = Computador('Lenovo', '12gb', 'Nvidia')
+# computador4 = Computador('Apple', '8gb', 'Raizen')
 
-print(computador1.marca, computador1.memoria_ram, computador1.memoria_ram)
+
 
