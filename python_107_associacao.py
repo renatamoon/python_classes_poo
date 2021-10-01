@@ -12,3 +12,6 @@ maquina = MaquinaDeEscrever()
 escritor.ferramenta = maquina
 escritor.ferramenta.escrever()
 
+del escritor
+print("A marca da caneta é: ", caneta.marca)
+maquina.escrever()
