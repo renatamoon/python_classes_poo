@@ -11,6 +11,12 @@ class A:
 
         #return object.__new__(cls)
 
+    def __str__(self):
+        return 'Essa é a classe A criada para tal coisa'
+
+    def __del__(self):
+        print('objeto coletado.')
+
     def __call__(self, *args, **kwargs): #faz a classe se comportar como uma funcao
         resultado = 1
         for i in args:
@@ -29,6 +35,7 @@ class A:
         else:
             self.__dict__[key] = value
 
+
 a = A()
 variavel = a(1,2,4,5,6,7,8,9,10)
 print(variavel)
@@ -36,6 +43,7 @@ a.nome = 'Luiz Otavio'
 print(a.nome)
 a.qualquer = 225
 print(a.nome, a.qualquer)
+print(a)
 # a(1,2,3,4,5, nome='Luiz')
 #a.haha()
 # b = A()
