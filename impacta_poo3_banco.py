@@ -12,21 +12,16 @@ class ContaBancaria:
         if senha == self.__senha:
             return True
         else:
-            print("ERRO: SENHA INVÁLIDA")
+            print("ERRO: SENHA INVALIDA")
             return False
 
     def depositar(self, valor, senha): #solicita um valor
         if self.__validar_senha(senha) is True: #so consegue fazer a operacao, se a senha for igual
-            self.__saldo = self.__saldo + valor
-        # else:
-        #     print("ERRO: senha invalida")
-        # #ou pode fazer self.__saldo += valor
+            self.__saldo += valor
 
     def sacar(self, valor, senha): #solicita um valor
         if self.__validar_senha(senha) is True:
             self.__saldo -= valor #decrementar o valor do saldo
-        # else:
-        #     print("ERRO: senha invalida")
 
     def consultar_saldo(self): #exibir o saldo
         return self.__saldo
@@ -38,6 +33,7 @@ conta1 = ContaBancaria(1234, "Paulo Vieira", 123)
 valor = float(input("Valor para Deposito: R$ ")) #pedindo para o user imputar o valor
 senha = int(getpass("Digite a sua senha: ")) #colocando o getpass
 conta1.depositar(valor, senha) #o valor informado vai para o metodo depositar
+
 print("Saldo atual: ", conta1.consultar_saldo()) #usando o metodo consultar
 
 #OPERAÇÃO DE SAQUE
